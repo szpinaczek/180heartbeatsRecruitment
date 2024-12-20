@@ -7,6 +7,20 @@ const MODULE_GRAPHQL_FIELDS = `
   mainImage {
     url
   }
+  secondaryImage {
+    url
+  }
+    moduleDescription {
+        json
+        links {
+          assets {
+            block {
+              url
+              description
+            }
+          }
+        }
+      }
 `;
 
 async function fetchGraphQL(query: any, preview = false) {
@@ -23,21 +37,21 @@ async function fetchGraphQL(query: any, preview = false) {
         }`,
       },
       body: JSON.stringify({ query }),
-      next: { tags: ["articles"] },
+      next: { tags: ["modules"] },
     }
   ).then((response) => response.json());
 }
 
-function extractArticleEntries(fetchResponse: any) {
+function extractModuleEntries(fetchResponse: any) {
   return fetchResponse?.data?.heartbeatsRecruitmentCollection?.items;
 }
 
-export async function getAllArticles(
+export async function getAllModules(
   isDraftMode = false
 ) {
-  const articles = await fetchGraphQL(
+  const modules = await fetchGraphQL(
     `query {
-        heartbeatsRecruitmentCollection(where:{slug_exists: true}, order: date_DESC, limit: 100, preview: ${
+        heartbeatsRecruitmentCollection(where:{slug_exists: true}, order: date_DESC, limit: 5, preview: ${
       isDraftMode ? "true" : "false"
     }) {
           items {
@@ -47,14 +61,14 @@ export async function getAllArticles(
       }`,
     isDraftMode
   );
-  return extractArticleEntries(articles);
+  return extractModuleEntries(modules);
 }
 
-export async function getArticle(
+export async function getModule(
   slug: string,
   isDraftMode = false
 ) {
-  const article = await fetchGraphQL(
+  const module = await fetchGraphQL(
     `query {
         heartbeatsRecruitmentCollection(where:{slug: "${slug}"}, limit: 1, preview: ${
       isDraftMode ? "true" : "false"
@@ -66,5 +80,5 @@ export async function getArticle(
       }`,
     isDraftMode
   );
-  return extractArticleEntries(article)[0];
+  return extractModuleEntries(module)[0];
 }

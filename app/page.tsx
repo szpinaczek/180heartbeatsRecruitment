@@ -1,9 +1,9 @@
-import { getAllArticles } from "@/lib/api";
+import { getAllModules } from "@/lib/api";
 import Image from "next/image";
 import Link from "next/link";
 
 export default async function Home() {
-  const articles = await getAllArticles();
+  const modules = await getAllModules();
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-white">
@@ -21,19 +21,28 @@ export default async function Home() {
           </div>
           <div className="space-y-12">
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {articles.map((article: any) => (
-                  <article key={article.sys.id} className="h-full flex flex-col overflow-hidden">
+              {modules.map((module: any) => (
+                  <article key={module.sys.id} className="h-full flex flex-col overflow-hidden">
                     <Image
                       alt="placeholder"
                       className="aspect-[4/3] object-cover w-full"
                       height="263"
-                      src={article.mainImage.url}
+                      src={module.mainImage.url}
                       width="350"
                     />
                     <div className="flex-1 p-6">
                       
                       <div className="inline-block bg-zinc-100 px-3 py-1 text-sm font-semibold text-zinc-800">
-                        {article.moduleTitle}
+                        {module.moduleTitle}
+                      </div>
+
+                      <div className="flex justify-end">
+                        <Link
+                          className="inline-flex h-10 items-center justify-center text-sm font-medium text-zinc-800"
+                          href={`/modules/${module.slug}`}
+                        >
+                          Read More →
+                        </Link>
                       </div>
                     
                     </div>
