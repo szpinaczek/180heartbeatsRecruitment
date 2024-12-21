@@ -23,23 +23,30 @@ export const MODULE1_GRAPHQL_FIELDS = `
       }
 `;
 
-export const MODULE3_GRAPHQL_FIELDS = `
+export const MODULE2_GRAPHQL_FIELDS = `
   sys {
     id
   }
+  isRight
   slug
   moduleTitle
-    moduleDescription {
-        json
-        links {
-          assets {
-            block {
-              url
-              description
-            }
+  mainImage {
+    url
+  }
+  secondaryImage {
+    url
+  }
+  moduleDescription {
+      json
+      links {
+        assets {
+          block {
+            url
+            description
           }
         }
       }
+    }
 `;
 
 async function fetchGraphQL(query: any, preview = false) {
@@ -68,11 +75,12 @@ function extractModuleEntries(fetchResponse: any, contentType: string) {
 export async function getAllModules(
   isDraftMode = false,
   query: string,
-  contentType: string
+  contentType: string,
+  orderBy?: string  
 ) {
   const modules = await fetchGraphQL(
     `query {
-        ${contentType}(where:{slug_exists: true}, order: date_ASC, limit: 5, preview: ${
+        ${contentType}(where:{slug_exists: true}, order: ${orderBy}, limit: 5, preview: ${
       isDraftMode ? "true" : "false"
     }) {
           items {
