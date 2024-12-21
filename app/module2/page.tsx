@@ -11,7 +11,14 @@ const allModules = await getAllModules(
   "date_ASC"
 );
 
-allModules.map((modules: any) => console.log(modules));
+// export async function generateStaticParams() {
+//   const allModules = await getAllModules();
+
+//   return allModules.map((module: any) => ({
+//     slug: module.slug,
+//   }));
+// }
+// allModules.map((modules: any) => console.log(modules));
 
 export default async function Module2Page() {
   return (
@@ -21,11 +28,9 @@ export default async function Module2Page() {
           <div className={`mainContainer relative mb-[100px] flex ${modules.isRight ? 'flex-row-reverse' : 'flex-row'}`}>
 
             <div className={`textContainer mt-0 pt-[50px] pl-[40px] pb-[178px] w-[80%] ${modules.isRight ? 'justify-end' : 'justify-start'}`}>
-              {/* <div className="max-w-[50%]"> */}
                 <h1 className="text-2xl font-bold tracking-tighter sm:text-3xl text-zinc-500 mb-[30px]">
                   {modules.moduleTitle}
                 </h1>
-              {/* </div> */}
 
               <div className="space-y-4 md:space-y-6">
                 <div className="space-y-2">
