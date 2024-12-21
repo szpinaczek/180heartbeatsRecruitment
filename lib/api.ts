@@ -1,4 +1,4 @@
-const MODULE_GRAPHQL_FIELDS = `
+export const MODULE1_GRAPHQL_FIELDS = `
   sys {
     id
   }
@@ -10,6 +10,25 @@ const MODULE_GRAPHQL_FIELDS = `
   secondaryImage {
     url
   }
+    moduleDescription {
+        json
+        links {
+          assets {
+            block {
+              url
+              description
+            }
+          }
+        }
+      }
+`;
+
+export const MODULE3_GRAPHQL_FIELDS = `
+  sys {
+    id
+  }
+  slug
+  moduleTitle
     moduleDescription {
         json
         links {
@@ -42,43 +61,45 @@ async function fetchGraphQL(query: any, preview = false) {
   ).then((response) => response.json());
 }
 
-function extractModuleEntries(fetchResponse: any) {
-  return fetchResponse?.data?.heartbeatsRecruitmentCollection?.items;
+function extractModuleEntries(fetchResponse: any, contentType: string) {
+  return fetchResponse?.data?.[contentType]?.items;
 }
 
 export async function getAllModules(
-  isDraftMode = false
+  isDraftMode = false,
+  query: string,
+  contentType: string
 ) {
   const modules = await fetchGraphQL(
     `query {
-        heartbeatsRecruitmentCollection(where:{slug_exists: true}, order: date_DESC, limit: 5, preview: ${
+        ${contentType}(where:{slug_exists: true}, order: date_ASC, limit: 5, preview: ${
       isDraftMode ? "true" : "false"
     }) {
           items {
-            ${MODULE_GRAPHQL_FIELDS}
+            ${query}
           }
         }
       }`,
     isDraftMode
   );
-  return extractModuleEntries(modules);
+  return extractModuleEntries(modules, contentType);
 }
 
-export async function getModule(
-  slug: string,
-  isDraftMode = false
-) {
-  const module = await fetchGraphQL(
-    `query {
-        heartbeatsRecruitmentCollection(where:{slug: "${slug}"}, limit: 1, preview: ${
-      isDraftMode ? "true" : "false"
-    }) {
-          items {
-            ${MODULE_GRAPHQL_FIELDS}
-          }
-        }
-      }`,
-    isDraftMode
-  );
-  return extractModuleEntries(module)[0];
-}
+// export async function getModule(
+//   slug: string,
+//   isDraftMode = false
+// ) {
+//   const module = await fetchGraphQL(
+//     `query {
+//         module3Collection(where:{slug: "${slug}"}, limit: 1, preview: ${
+//       isDraftMode ? "true" : "false"
+//     }) {
+//           items {
+//             ${MODULE3_GRAPHQL_FIELDS}
+//           }
+//         }
+//       }`,
+//     isDraftMode
+//   );
+//   return extractModuleEntries(module)[0];
+// }
