@@ -1,16 +1,7 @@
 import { getAllModules, MODULE1_GRAPHQL_FIELDS } from "@/lib/api";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Image from "next/image";
-import { useInView } from "react-intersection-observer";
 import AnimationOnScroll from "@/components/Interactions";
-
-// export async function generateStaticParams() {
-//   const allModules = await getAllModules();
-
-//   return allModules.map((module: any) => ({
-//     slug: module.slug,
-//   }));
-// }
 
 const allModules = await getAllModules(
   false,
@@ -18,11 +9,6 @@ const allModules = await getAllModules(
   "heartbeatsRecruitmentCollection",
   "date_ASC"
 );
-
-const getGradientValue = (modules: any) => {
-  const gradientColor = modules.gradientColor;
-  return gradientColor;
-};
 
 export default async function ModulePage1() {
   return (
@@ -50,7 +36,8 @@ export default async function ModulePage1() {
                   } 
                 ${
                   modules.hasGradient
-                    ? // ? `bg-gradient-to-br from-[#${
+                    ? 
+                    // ? `bg-gradient-to-br from-[#${
                       //     modules.gradientColor ? modules.gradientColor : "e5dfca"
                       //   }] to-white`
                       // : ""
@@ -111,36 +98,9 @@ export default async function ModulePage1() {
                   />
                 ) : null}
 
-                {/* {modules.secondaryImage.url && (
-                <Image
-                  alt="Module Secondary Image"
-                  className={`hidden lg:block md:relative overflow-hidden object-cover z-9 top-[273px] w-[235px] h-[296px] ${
-                    modules.isRight ? "left-[175px]" : "left-[-175px]"
-                  }`}
-                  height="235"
-                  src={modules.secondaryImage.url}
-                  width="296"
-                />
-              )} */}
               </div>
             </AnimationOnScroll>
           </div>
-          {/* <AnimationOnScroll
-            classNameInView="animate-fade-in"
-            classNameNotInView="animate-fade-out"
-          >
-            <div>
-              {modules.secondaryImage.url ? (
-                <Image
-                  alt="Module Secondary Image"
-                  className={`animatedStuff object-cover z-9 top-[273px] w-[235px] h-[296px] `}
-                  height="235"
-                  src={modules.secondaryImage.url}
-                  width="296"
-                />
-              ) : null}
-            </div>
-          </AnimationOnScroll> */}
         </section>
       ))}
     </main>

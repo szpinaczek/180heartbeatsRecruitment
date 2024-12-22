@@ -21,6 +21,8 @@ const allModules = await getAllModules(
 // allModules.map((modules: any) => console.log(modules));
 
 export default async function Module2Page() {
+  
+      
   return <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-white">
       {allModules.map((modules: any) => (
         <section key={modules.sys.id} className="w-full lg:max-w-[800px]">
