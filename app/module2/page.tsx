@@ -26,12 +26,12 @@ export default async function Module2Page() {
       {allModules.map((modules: any) => (
         <section key={modules.sys.id} className="w-full lg:max-w-[800px]">
           <div
-            className={`mainContainer relative mb-[100px] flex ${
-              modules.isRight ? "flex-row-reverse" : "flex-row"
+            className={`mainContainer relative mb-[100px] flex flex flex-col-reverse ${
+              modules.isRight ? "md:flex-row-reverse" : "md:flex-row"
             }`}
           >
             <div
-              className={`textContainer mt-0 pt-[50px] pl-[40px] pb-[178px] w-[80%] ${
+              className={`textContainer mt-0 pt-[50px] md:pl-[40px] md:pb-[178px] w-full md:w-[80%] ${
                 modules.isRight ? "justify-end" : "justify-start"
               } ${
                 modules.hasGradient
@@ -53,14 +53,14 @@ export default async function Module2Page() {
             </div>
 
             <div
-              className={`imageContainer w-full h-[572px] relative flex ${
-                modules.isRight ? "justify-start" : "justify-end"
+              className={`imageContainer w-full h-auto lg:h-[572px] md:h-[572px] relative flex ${
+                modules.isRight ? "md:justify-start" : "md:justify-end"
               }`}
             >
               {modules.mainImage.url && (
                 <Image
                   alt="Module Main Image"
-                  className="absolute overflow-hidden object-cover z-10 top-0 w-[320px] h-[320px]"
+                  className="md:absolute overflow-hidden object-cover z-10 top-0 w-[320px] h-[320px]"
                   height="318"
                   src={modules.mainImage.url}
                   width="320"
@@ -69,7 +69,7 @@ export default async function Module2Page() {
               {modules.secondaryImage.url && (
                 <Image
                   alt="Module Secondary Image"
-                  className={`relative overflow-hidden object-cover z-9 top-[273px] w-[235px] h-[296px] ${
+                  className={`hidden md:block relative overflow-hidden object-cover z-9 top-[273px] w-[235px] h-[296px] ${
                     modules.isRight ? "left-[175px]" : "left-[-175px]"
                   }`}
                   height="235"

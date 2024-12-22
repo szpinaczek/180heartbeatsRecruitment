@@ -79,8 +79,8 @@ export default async function ModulePage5() {
                   alt="Module Main Image"
                   className="lg:absolute overflow-hidden object-cover z-10 top-0 md:right-0 lg:left-0 w-full h-auto md:h-auto lg:w-[300px]"
                   height="328"
-                  src={modules.mainImage.url}
                   width="320"
+                  src={modules.mainImage.url}
                 />
               )}
 
@@ -91,8 +91,8 @@ export default async function ModulePage5() {
                     modules.isRight ? "left-[-50px]" : "left-[175px]"
                   }`}
                   height="235"
-                  src={modules.secondaryImage.url}
                   width="296"
+                  src={modules.secondaryImage.url}
                 />
               ) : null}
             </div>

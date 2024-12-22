@@ -63,8 +63,8 @@ export default async function ModulePage4() {
                   alt="Module Main Image"
                   className="overflow-hidden object-cover z-10 top-0 max-w-full h-auto"
                   height="860"
-                  src={modules.mainImage.url}
                   width="695"
+                  src={modules.mainImage.url}
                 />
               )}
             </div>

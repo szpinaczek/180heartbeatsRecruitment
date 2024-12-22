@@ -63,11 +63,11 @@ export default async function ModulePage5() {
                 <Image
                   alt="Module Main Image"
                   className={`lg:absolute overflow-hidden object-cover z-10 top-0 md:right-0 lg:right-0 w-full h-auto md:h-auto lg:w-[300px] ${
-                    modules.imageType === "large" ? "lg:bottom-[380px] lg:shadow-[10px_10px_10px_rgb(0,0,0,0.2)]" : ""
+                    modules.imageType === "large" ? "lg:bottom-[380px] lg:shadow-[20px_20px_20px_rgb(0,0,0,0.2)]" : ""
                   }`}
                   height="328"
-                  src={modules.mainImage.url}
                   width="320"
+                  src={modules.mainImage.url}
                 />
               )}
             </div>
