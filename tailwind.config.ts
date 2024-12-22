@@ -17,7 +17,7 @@ export default {
         'orange': "#f87e33",
         'black': "#222222",
         'beige': '#e5dfca',
-        'regal-blue': '#243c5a',
+        'light-blue': '#dde4f0',
       },
     },
   },

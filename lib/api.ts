@@ -27,7 +27,58 @@ export const MODULE1_GRAPHQL_FIELDS = `
           }
         }
       }
-`;
+`
+
+export const MODULE2_GRAPHQL_FIELDS = `
+  sys {
+    id
+  }
+  isRight
+  slug
+  moduleTitle
+  mainImage {
+    url
+  }
+  secondaryImage {
+    url
+  }
+  moduleDescription {
+      json
+      links {
+        assets {
+          block {
+            url
+            description
+          }
+        }
+      }
+    }
+`
+
+export const MODULE3_GRAPHQL_FIELDS = `
+  sys {
+    id
+  }
+  isRight
+  hasButton
+  hasGradient
+  imageType
+  moduleTitle
+  moduleDescription {
+    json
+    links {
+      assets {
+        block {
+          url
+          description
+        }
+      }
+    }
+  }
+  mainImage {
+    url
+  }
+`
 
 export const MODULE4_GRAPHQL_FIELDS = `
   sys {
@@ -54,40 +105,39 @@ export const MODULE4_GRAPHQL_FIELDS = `
         }
       }
     }
-`;
+`
 
-export const MODULE2_GRAPHQL_FIELDS = `
+export const MODULE5_GRAPHQL_FIELDS = `
   sys {
     id
   }
-  isRight
-  slug
+  mainDescription {
+    json
+    
+  }
+  mainTitle
   moduleTitle
+  isRight
+  hasGradient
+  hasButton
+  moduleDescription {
+    json
+    links {
+      assets {
+        block {
+          url
+          description
+        }
+      }
+    }
+  }
   mainImage {
     url
   }
   secondaryImage {
     url
   }
-  moduleDescription {
-      json
-      links {
-        assets {
-          block {
-            url
-            description
-          }
-        }
-      }
-    }
-`;
-
-export const MODULE5_GRAPHQL_FIELDS = `
-  sys {
-    id
-  }
-  moduleTitle
-`;
+`
 
 async function fetchGraphQL(query: any, preview = false) {
   return fetch(
