@@ -21,13 +21,12 @@ const allModules = await getAllModules(
 // allModules.map((modules: any) => console.log(modules));
 
 export default async function Module2Page() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-white">
+  return <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-white">
       {allModules.map((modules: any) => (
-        <section key={modules.sys.id} className="w-full lg:w-[60%]">
+        <section key={modules.sys.id} className="w-full lg:max-w-[800px]">
           <div className={`mainContainer relative mb-[100px] flex ${modules.isRight ? 'flex-row-reverse' : 'flex-row'}`}>
 
-            <div className={`textContainer mt-0 pt-[50px] pl-[40px] pb-[178px] w-[80%] ${modules.isRight ? 'justify-end' : 'justify-start'}`}>
+            <div className={`textContainer mt-0 pt-[50px] pl-[40px] pb-[178px] w-[80%] ${modules.isRight ? 'justify-end' : 'justify-start'} ${modules.hasGradient ? 'bg-gradient-to-br from-[#e5dfca] to-white' : ''}`}>
                 <h1 className="text-2xl font-bold tracking-tighter sm:text-3xl text-zinc-500 mb-[30px]">
                   {modules.moduleTitle}
                 </h1>
@@ -65,5 +64,4 @@ export default async function Module2Page() {
         </section>
       ))}
     </main>
-  );
 }

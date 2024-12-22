@@ -4,6 +4,12 @@ export const MODULE1_GRAPHQL_FIELDS = `
   }
   slug
   moduleTitle
+  isRight
+  hasButton
+  hasGradient
+  gradientColor
+  buttonColor
+  className
   mainImage {
     url
   }
@@ -21,6 +27,33 @@ export const MODULE1_GRAPHQL_FIELDS = `
           }
         }
       }
+`;
+
+export const MODULE4_GRAPHQL_FIELDS = `
+  sys {
+    id
+  }
+  moduleTitle
+  gradientColor
+  hasGradient
+  hasButton
+  buttonColor
+  isRight
+  slug
+  mainImage {
+    url
+  }
+  moduleDescription {
+      json
+      links {
+        assets {
+          block {
+            url
+            description
+          }
+        }
+      }
+    }
 `;
 
 export const MODULE2_GRAPHQL_FIELDS = `
@@ -80,7 +113,7 @@ export async function getAllModules(
 ) {
   const modules = await fetchGraphQL(
     `query {
-        ${contentType}(where:{slug_exists: true}, order: ${orderBy}, limit: 5, preview: ${
+        ${contentType}(where:{slug_exists: true}, order: ${orderBy}, limit: 10, preview: ${
       isDraftMode ? "true" : "false"
     }) {
           items {
