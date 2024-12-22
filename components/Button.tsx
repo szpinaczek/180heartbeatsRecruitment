@@ -13,7 +13,7 @@ export default function Button({ children, bgColor }: {children: React.ReactNode
     // }, [modules.buttonColor])
 
     return (
-        <button className={`bg-${bgColor} hover:bg-blue-700 text-white font-bold py-2 px-4 rounded`}>
+        <button className={`bg-${bgColor} hover:bg-${bgColor}-200 text-white font-bold py-2 px-4 cursor-pointer mt-10 uppercase text-sm font-semibold text-white hover:text-zinc-600`}>
             {children}
         </button>
     )

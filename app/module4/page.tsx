@@ -29,7 +29,7 @@ export default async function ModulePage4() {
             }`}
           >
             <div
-              className={`textContainer pr-10 mt-0 pt-[50px] pl-[40px] pb-20 lg:pb-[178px] md:w-[60%] ${
+              className={`textContainer pr-10 mt-0 md:mt-[50px] pt-[50px] pl-[40px] pb-20 lg:pb-[100px] md:w-[60%] ${
                 modules.isRight
                   ? "justify-end pl-10 md:pl-[100px] lg:pl-[120px]"
                   : "justify-start"
@@ -54,15 +54,13 @@ export default async function ModulePage4() {
               {modules.hasButton && (
                 <button
                 
-                  className={`cursor-pointer mt-10 uppercase bg-${handleButtonColor(
-                    modules
-                  )} py-4 px-8 text-sm font-semibold text-white hover:text-zinc-600`}
+                  className={`bg-black py-4 px-8 text-sm font-semibold text-white hover:text-zinc-200 mt-10 uppercase`}
                 >
-                  Read More
+                  quis autem vel eum
                 </button>
+                // <Button bgColor='black'>quis autem vel eum</Button>
               )}
 
-              <Button bgColor={modules.buttonColor}>click me</Button>
             </div>
 
             <div
