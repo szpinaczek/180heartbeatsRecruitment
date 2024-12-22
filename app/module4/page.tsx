@@ -20,7 +20,7 @@ const handleButtonColor = (modules: any) => {
 
 export default async function ModulePage4() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-10 md:p-24 bg-white">
+    <>
       {allModules.map((modules: any) => (
         <section key={modules.sys.id} className="w-full lg:max-w-[800px]">
           <div
@@ -53,14 +53,12 @@ export default async function ModulePage4() {
 
               {modules.hasButton && (
                 <button
-                
                   className={`bg-black py-4 px-8 text-sm font-semibold text-white hover:text-zinc-200 mt-10 uppercase`}
                 >
                   quis autem vel eum
                 </button>
                 // <Button bgColor='black'>quis autem vel eum</Button>
               )}
-
             </div>
 
             <div
@@ -81,6 +79,6 @@ export default async function ModulePage4() {
           </div>
         </section>
       ))}
-    </main>
+    </>
   );
 }

@@ -21,17 +21,27 @@ const allModules = await getAllModules(
 // allModules.map((modules: any) => console.log(modules));
 
 export default async function Module2Page() {
-  
-      
-  return <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-white">
+  return (
+    <>
       {allModules.map((modules: any) => (
         <section key={modules.sys.id} className="w-full lg:max-w-[800px]">
-          <div className={`mainContainer relative mb-[100px] flex ${modules.isRight ? 'flex-row-reverse' : 'flex-row'}`}>
-
-            <div className={`textContainer mt-0 pt-[50px] pl-[40px] pb-[178px] w-[80%] ${modules.isRight ? 'justify-end' : 'justify-start'} ${modules.hasGradient ? 'bg-gradient-to-br from-[#e5dfca] to-white' : ''}`}>
-                <h1 className="text-2xl font-bold tracking-tighter sm:text-3xl text-zinc-500 mb-[30px]">
-                  {modules.moduleTitle}
-                </h1>
+          <div
+            className={`mainContainer relative mb-[100px] flex ${
+              modules.isRight ? "flex-row-reverse" : "flex-row"
+            }`}
+          >
+            <div
+              className={`textContainer mt-0 pt-[50px] pl-[40px] pb-[178px] w-[80%] ${
+                modules.isRight ? "justify-end" : "justify-start"
+              } ${
+                modules.hasGradient
+                  ? "bg-gradient-to-br from-[#e5dfca] to-white"
+                  : ""
+              }`}
+            >
+              <h1 className="text-2xl font-bold tracking-tighter sm:text-3xl text-zinc-500 mb-[30px]">
+                {modules.moduleTitle}
+              </h1>
 
               <div className="space-y-4 md:space-y-6">
                 <div className="space-y-2">
@@ -42,7 +52,11 @@ export default async function Module2Page() {
               </div>
             </div>
 
-            <div className={`imageContainer w-full h-[572px] relative flex ${modules.isRight ? 'justify-start' : 'justify-end'}`}>
+            <div
+              className={`imageContainer w-full h-[572px] relative flex ${
+                modules.isRight ? "justify-start" : "justify-end"
+              }`}
+            >
               {modules.mainImage.url && (
                 <Image
                   alt="Module Main Image"
@@ -55,7 +69,9 @@ export default async function Module2Page() {
               {modules.secondaryImage.url && (
                 <Image
                   alt="Module Secondary Image"
-                  className={`relative overflow-hidden object-cover z-9 top-[273px] w-[235px] h-[296px] ${modules.isRight ? 'left-[175px]' : 'left-[-175px]'}`}
+                  className={`relative overflow-hidden object-cover z-9 top-[273px] w-[235px] h-[296px] ${
+                    modules.isRight ? "left-[175px]" : "left-[-175px]"
+                  }`}
                   height="235"
                   src={modules.secondaryImage.url}
                   width="296"
@@ -65,5 +81,6 @@ export default async function Module2Page() {
           </div>
         </section>
       ))}
-    </main>
+    </>
+  );
 }
