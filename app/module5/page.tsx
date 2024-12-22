@@ -18,11 +18,11 @@ export default async function ModulePage5() {
           key={modules.sys.id}
           className="w-full md:max-w-[80%] lg:max-w-[800px]"
         >
-          <section className="text-xl font-bold tracking-tighter sm:text-3xl text-zinc-500 mb-[30px]">
+          <section className="text-xl font-bold sm:text-3xl text-zinc-500 mb-[30px]">
             <h2 className="mb-10">
             Lorem ipsum dolor sit amet
             </h2>
-            <p className="mb-20 lg:pl-[100px] font-normal text-zinc-800 md:text-base/relaxed lg:text-base/relaxed">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati cupiditate, perferendis nostrum aut sed porro quia et at veniam vel perspiciatis, nesciunt facere impedit deleniti, ut repellendus. Dolores, tenetur illum.
+            <p className="mb-20 lg:pl-[100px] font-normal text-zinc-800 md:text-base lg:text-base">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati cupiditate, perferendis nostrum aut sed porro quia et at veniam vel perspiciatis, nesciunt facere impedit deleniti, ut repellendus. Dolores, tenetur illum.
             Odit tenetur delectus ipsum! Est dicta omnis impedit voluptate fugiat porro, corrupti sint non molestias odio, sequi, nulla obcaecati animi labore totam explicabo laboriosam? Facere hic dolores omnis excepturi? Dolores.
             Obcaecati expedita, nesciunt pariatur quos quam fuga eius eum saepe sunt aliquid, eveniet quis molestiae nisi quisquam quaerat. Minima molestias aliquam impedit ut explicabo recusandae aspernatur omnis illum maxime maiores!
             Itaque recusandae quos magni magnam quia molestiae accusantium voluptate consectetur nemo facere iste molestias, veritatis culpa quas libero tempora quod possimus aperiam, at, ipsa deleniti mollitia eveniet. Expedita, dolores molestias!
