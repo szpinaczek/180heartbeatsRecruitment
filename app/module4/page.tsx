@@ -10,14 +10,6 @@ const allModules = await getAllModules(
   "date_ASC"
 );
 
-const handleButtonColor = (modules: any) => {
-  if (modules.buttonColor) {
-    return modules.buttonColor;
-  } else {
-    return "black";
-  }
-};
-
 export default async function ModulePage4() {
   return (
     <>

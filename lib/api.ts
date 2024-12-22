@@ -82,6 +82,13 @@ export const MODULE2_GRAPHQL_FIELDS = `
     }
 `;
 
+export const MODULE5_GRAPHQL_FIELDS = `
+  sys {
+    id
+  }
+  moduleTitle
+`;
+
 async function fetchGraphQL(query: any, preview = false) {
   return fetch(
    `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`,

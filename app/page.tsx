@@ -11,6 +11,7 @@ export default function Page() {
         <Link href="/module1" className="h-[200px] w-[200px] bg-beige p-10 text-2xl font-bold tracking-tighter sm:text-3xl text-zinc-500 mb-[30px]">Module 1</Link> 
         <Link href="/module2" className="h-[200px] w-[200px] bg-beige p-10 text-2xl font-bold tracking-tighter sm:text-3xl text-zinc-500 mb-[30px]">Module 2</Link> 
         <Link href="/module4" className="h-[200px] w-[200px] bg-beige p-10 text-2xl font-bold tracking-tighter sm:text-3xl text-zinc-500 mb-[30px]">Module 4</Link> 
+        <Link href="/module5" className="h-[200px] w-[200px] bg-beige p-10 text-2xl font-bold tracking-tighter sm:text-3xl text-zinc-500 mb-[30px]">Module 5</Link> 
       </div>
     </section>
   </>

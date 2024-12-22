@@ -6,5 +6,6 @@ export default function header() {
         <Link href="/module1">Module 1</Link> 
         <Link href="/module2">Module 2</Link> 
         <Link href="/module4">Module 4</Link> 
+        <Link href="/module5">Module 5</Link> 
     </header>
 }
