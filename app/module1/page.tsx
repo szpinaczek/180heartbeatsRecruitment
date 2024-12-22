@@ -12,7 +12,7 @@ const allModules = await getAllModules(
 
 export default async function ModulePage1() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-10 lg:p-24 bg-white">
+    <>
       {allModules.map((modules: any) => (
         <section
           key={modules.sys.id}
@@ -29,21 +29,20 @@ export default async function ModulePage1() {
             >
               <div
                 className={`textContainer mt-0 lg:mt-[40px] lg:mb-[40px] pt-7 lg:pt-[50px] pl-[40px] pb-7 pr-7 md:pr-[40px] md:pb-[50px] lg:pb-[100px] w-full md:w-[350px] lg:w-[500px] 
+                    ${
+                      modules.isRight
+                        ? "justify-end md:pl-20 lg:pl-[220px] pr-5"
+                        : "justify-start"
+                    } 
                   ${
-                    modules.isRight
-                      ? "justify-end md:pl-20 lg:pl-[220px] pr-5"
-                      : "justify-start"
-                  } 
-                ${
-                  modules.hasGradient
-                    ? 
-                    // ? `bg-gradient-to-br from-[#${
-                      //     modules.gradientColor ? modules.gradientColor : "e5dfca"
-                      //   }] to-white`
-                      // : ""
-                      `bg-gradient-to-br from-beige to-white`
-                    : ""
-                }`}
+                    modules.hasGradient
+                      ? // ? `bg-gradient-to-br from-[#${
+                        //     modules.gradientColor ? modules.gradientColor : "e5dfca"
+                        //   }] to-white`
+                        // : ""
+                        `bg-gradient-to-br from-beige to-white`
+                      : ""
+                  }`}
               >
                 <h1 className="text-2xl font-bold tracking-tighter sm:text-3xl text-zinc-500 mb-[30px] w-full">
                   {modules.moduleTitle}
@@ -97,12 +96,11 @@ export default async function ModulePage1() {
                     width="296"
                   />
                 ) : null}
-
               </div>
             </AnimationOnScroll>
           </div>
         </section>
       ))}
-    </main>
+    </>
   );
 }
