@@ -13,7 +13,7 @@ export default function Page() {
         </p>
       </div>
       <section>
-        <div className="p-10 flex flex-col md:flex-row justify-between align-center w-full gap-10">
+        <div className="p-10 flex flex-col md:flex-row justify-between align-center w-full gap-10 lg:mb-[80px]">
           <Link
             href="/module1"
             className="h-[200px] w-[200px] bg-white p-0 text-2xl font-bold tracking-tighter sm:text-3xl text-zinc-500 mb-[30px] flex flex-col justify-center items-center"
