@@ -18,9 +18,8 @@ const allModules = await getAllModules(
 //     slug: module.slug,
 //   }));
 // }
-// allModules.map((modules: any) => console.log(modules));
 
-export default async function Module2Page() {
+export default async function ModulePage2() {
   return (
     <>
       {allModules.map((modules: any) => (
