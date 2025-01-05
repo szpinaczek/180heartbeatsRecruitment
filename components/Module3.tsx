@@ -12,7 +12,7 @@ export default async function Module3() {
       {entries.map((entry: any) => (
         <section
           key={entry.sys.id}
-          className="w-full md:max-w-[80%] lg:max-w-[800px]"
+          className="w-full md:max-w-[80%] lg:max-w-[800px] relative"
         >
           <div
             className={`mainContainer static md:relative mb-5 md:mb-[100px] w-full h-auto lg:h-auto flex flex-col-reverse ${
@@ -70,26 +70,31 @@ export default async function Module3() {
                 />
               )}
             </div>
-
-            {/* SWATCHES */}
-
-            {entry.fields.swatch && (
-
-                <div className={`swatches absolute w-full flex justify-center items-center w-full h-[140px] left-0 bottom-[-70px] bg-transparent z-10  gap-5`}>
-
-                    {entry.fields.swatch.map((swatch: any) => {
-                        return (
-                            <div className={`flex justify-center items-center w-[140px] h-[140px] bg-[#e5dfca] `} key={swatch.sys.id}>
-                                <p>{swatch.fields.swatchName}</p>
-                            </div>
-                        )
-                    })}
-
-                </div>
-
-            )}
-
           </div>
+
+          {entry.fields.swatch && (
+            <div
+              className={`swatches mb-20 md:mb-0 md:absolute w-full flex justify-center items-center w-full h-[120px] left-0 md:bottom[20px] bottom-[40px] bg-transparent z-10 gap-5 order-2`}
+            >
+              {entry.fields.swatch.map((swatch: any) => {
+                return (
+                  <div
+                    className={`flex justify-center items-center w-[120px] h-[120px] bg-[#e5dfca]`}
+                    key={swatch.sys.id}
+                  >
+                    <Image
+                      alt="Swatch Image"
+                      className={`overflow-hidden object-cover w-full h-auto lg:w-[120px]`}
+                      height="120"
+                      width="120"
+                      src={`https:${swatch.fields.swatchImage.fields.file.url}`}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          )}
+
         </section>
       ))}
     </>
