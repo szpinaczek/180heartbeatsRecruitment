@@ -3,10 +3,10 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import Image from "next/image";
 
 export default async function Module3() {
-  const entries = await getAllModulesREST();
-  {
-    console.log("entries: ", entries);
-  }
+  const entries = await getAllModulesREST("module3");
+  // {
+  //   console.log("entries: ", entries);
+  // }
   return (
     <>
       {entries.map((entry: any) => (
