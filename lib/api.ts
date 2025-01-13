@@ -1,4 +1,4 @@
-import { createClient } from 'contentful';
+// import { createClient } from 'contentful';
 
 export const MODULE1_GRAPHQL_FIELDS = `
   sys {
@@ -12,6 +12,11 @@ export const MODULE1_GRAPHQL_FIELDS = `
   gradientColor
   buttonColor
   className
+  buttonsCollection {
+        items {
+          title
+        }
+      }
   mainImage {
     url
   }
@@ -141,18 +146,6 @@ export const MODULE5_GRAPHQL_FIELDS = `
     url
   }
 `
-
-// export const SWATCHES_GRAPHQL_FIELDS = `
-//   sys {
-//     id
-//   }
-//   swatchName
-//   swatchImage {
-//     url
-//   }
-// `
-
-
 
 async function fetchGraphQL(query: any, preview = false) {
   return fetch(

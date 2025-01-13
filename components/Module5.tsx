@@ -13,7 +13,7 @@ export default async function Module5() {
       <section className="text-xl font-bold sm:text-3xl text-zinc-500 mb-[30px] w-full md:max-w-[80%] lg:max-w-[800px]">
         <LeadText module="module5" />
       </section>
-      
+
       {entries.map((entry: any) => (
         <section
           key={entry.sys.id}
@@ -51,12 +51,11 @@ export default async function Module5() {
 
               {entry.fields.hasButton && (
                 <div className="flex flex-row gap-4">
-                  <button className="cursor-pointer mt-10 text-sm font-semibold text-orange hover:text-zinc-600">
-                    Read More
+                  {entry.fields.buttons.map((button: any) => (
+                    <button key={button.sys.id} className={`cursor-pointer mt-10 text-sm font-semibold text-orange hover:text-zinc-600`}>
+                    {button.fields.title}
                   </button>
-                  <button className="cursor-pointer mt-10 text-sm font-semibold text-orange hover:text-zinc-600">
-                    Read More
-                  </button>
+                  ))}
                 </div>
               )}
             </div>
